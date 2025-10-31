@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impresión 3D - Star Fidget</title>
+    
+    <style>
+        /* Todos los estilos CSS son idénticos, no es necesario copiarlos de nuevo */
+        /* ... (Tu CSS existente va aquí) ... */
+        /* --- Estilos Generales --- */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+        /* --- Encabezado --- */
+        header {
+            background-color: #a12c2c;
+            color: #ecf0f1;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 4px solid #e74c3c;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+        /* --- Menú de Navegación --- */
+        nav.navbar {
+            background-color: #c0392b;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        nav.navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav.navbar li {
+            position: relative;
+        }
+        nav.navbar a {
+            display: block;
+            color: #ffffff;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        nav.navbar a:hover {
+            background-color: #a12c2c;
+        }
+        nav.navbar a.active {
+            background-color: #a12c2c; 
+            font-weight: 700;
+        }
+        /* --- Contenido Principal --- */
+        main {
+            max-width: 900px; 
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        /* --- Estilos de Página de Proyecto --- */
+        .project-page {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .project-page h2 {
+            font-size: 2rem;
+            color: #c0392b;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+        .project-page h3 { font-size: 1.4rem; color: #a12c2c; margin-top: 25px; }
+        .project-page p { font-size: 1.05rem; margin-bottom: 15px; }
+        .project-page .intro {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #555;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .project-page ol { list-style-type: decimal; margin-left: 20px; padding-left: 15px; }
+        .project-page ol li { margin-bottom: 15px; font-size: 1.05rem; }
+        /* --- Estilos del Carrusel (Slideshow) --- */
+        .slideshow-container {
+            max-width: 100%;
+            position: relative;
+            margin: 40px auto 30px auto; 
+            border-radius: 8px;
+            overflow: hidden; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .mySlides { display: none; }
+        .mySlides img { width: 100%; vertical-align: middle; }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.3s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .next { right: 0; border-radius: 3px 0 0 3px; }
+        .prev:hover, .next:hover { background-color: rgba(0, 0, 0, 0.8); }
+        .fade { animation-name: fade; animation-duration: 1.5s; }
+        @keyframes fade { from {opacity: .4} to {opacity: 1} }
+        /* --- Pie de Página --- */
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px 20px;
+            background-color: #a12c2c;
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Diseño y Manufactura Digital</h1>
+    </header>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="impresion3d.html" class="active">Impresión 3D</a></li>
+            <li><a href="cortelaser.html">Corte Láser</a></li>
+            <li><a href="disenopcb.html">Diseño de PCB</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <article class="project-page">
+            
+            <h2>Impresión 3D</h2>
+            <p class="intro">En este proyecto elaboré un “star fidget”.</p>
+
+            <h3>Paso 1: Crear el diseño base</h3>
+            <p>Abrir Tinkercad y crear un nuevo proyecto.</p>
+            <h3>Paso 2: Crear la estrella paso a paso</h3>
+            <p>Diseño del Star Fidget, formado por cuatro estrellas de distintos tamaños, cada una rotada y alineada.</p>
+            <ol>
+                <li><strong>Crear la estrella base</strong><br> Arrastra una forma de estrella (Star)...</li>
+                <li><strong>Duplicar y reducir</strong><br> Duplica la estrella (Ctrl + D)...</li>
+                <li><strong>Repetir el patrón</strong><br> Duplica nuevamente la segunda estrella...</li>
+                <li><strong>Alinear las estrellas</strong><br> Selecciona todas las estrellas y utiliza la herramienta Alinear...</li>
+                <li><strong>Agrupar las formas</strong><br> Con todas las estrellas aún seleccionadas, presiona Ctrl + G (Group)...</li>
+                <li><strong>Crear el corte</strong><br> Arrastra un cilindro hueco (“Hole Cylinder”)...</li>
+            </ol>
+            <h3>Paso 3: Configurar parámetros para impresión</h3>
+            <p>Una vez terminado el modelo, exporté el archivo en formato .STL desde Tinkercad.</p>
+            
+            
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <img src="https://github.com/sofi2810/pensamiento_ing1/blob/main/3d%202.png" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                    <img src="https://github.com/sofi2810/pensamiento_ing1/blob/main/3d%201.jpg" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                    <img src="https://github.com/sofi2810/pensamiento_ing1/blob/main/3d%203.jpg" style="width:100%">
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            </article> </main>
+
+    <footer>
+        <p>&copy; 2025 - Mi Portafolio de Diseño y Manufactura</p>
+    </footer>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        function plusSlides(n) { showSlides(slideIndex += n); }
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex-1].style.display = "block";
+        }
+    </script>
+    
+</body>
+</html>
