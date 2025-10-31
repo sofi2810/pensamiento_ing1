@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño de PCB - Temporizador 555</title>
+    
+    <style>
+        /* --- Estilos Generales --- */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* --- Encabezado --- */
+        header {
+            background-color: #a12c2c;
+            color: #ecf0f1;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 4px solid #e74c3c;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        /* --- Menú de Navegación --- */
+        nav.navbar {
+            background-color: #c0392b;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        nav.navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav.navbar li {
+            position: relative;
+        }
+        nav.navbar a {
+            display: block;
+            color: #ffffff;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        nav.navbar a:hover {
+            background-color: #a12c2c;
+        }
+        /* Estilo para la página actual */
+        nav.navbar a.active {
+            background-color: #a12c2c; 
+            font-weight: 700;
+        }
+
+        /* --- Contenido Principal --- */
+        main {
+            max-width: 900px; 
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        /* --- Estilos de Página de Proyecto --- */
+        .project-page {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .project-page h2 {
+            font-size: 2rem;
+            color: #c0392b;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+        .project-page h3 { font-size: 1.4rem; color: #a12c2c; margin-top: 30px; }
+        .project-page p { font-size: 1.05rem; margin-bottom: 15px; }
+        .project-page .intro {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #555;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        /* Estilos para listas */
+        .project-page ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding-left: 15px;
+        }
+        .project-page ul li {
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+        }
+        /* Para listas anidadas */
+        .project-page ul ul {
+            list-style-type: circle;
+            margin-top: 10px;
+        }
+
+        /* --- Estilos del Carrusel (Slideshow) --- */
+        .slideshow-container {
+            max-width: 100%;
+            position: relative;
+            margin: 40px auto 30px auto; 
+            border-radius: 8px;
+            overflow: hidden; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .mySlides { display: none; }
+        .mySlides img { width: 100%; vertical-align: middle; }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.3s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .next { right: 0; border-radius: 3px 0 0 3px; }
+        .prev:hover, .next:hover { background-color: rgba(0, 0, 0, 0.8); }
+        .fade { animation-name: fade; animation-duration: 1.5s; }
+        @keyframes fade { from {opacity: .4} to {opacity: 1} }
+
+        /* --- Pie de Página --- */
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px 20px;
+            background-color: #a12c2c;
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Diseño y Manufactura Digital</h1>
+    </header>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="impresion3d.html">Impresión 3D</a></li>
+            <li><a href="cortelaser.html">Corte Láser</a></li>
+            <li><a href="disenopcb.html" class="active">Diseño de PCB</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <article class="project-page">
+            
+            <h2>Diseño de PCB</h2>
+            <p class="intro">
+                El diseño de una PCB (Printed Circuit Board) permite convertir un circuito armado en protoboard en una placa compacta y funcional. En este proyecto elaboré un temporizador con un 555 que enciende y apaga un LED de forma intermitente. El diseño y la simulación se realizaron en EasyEDA.
+            </p>
+
+            <h3>Paso 1: Componentes utilizados</h3>
+            <p>Componentes electrónicos:</p>
+            <ul>
+                <li><strong>V1</strong> – Fuente de 9 V (alimentación)</li>
+                <li><strong>IC1</strong> – NE555 (temporizador)</li>
+                <li><strong>R1</strong> – Resistencia de 220 Ω</li>
+                <li><strong>R2</strong> – Resistencia de 1 kΩ</li>
+                <li><strong>R3</strong> – Resistencia de 3.1 kΩ</li>
+                <li><strong>R4</strong> – Resistencia de 10 kΩ</li>
+                <li><strong>C1</strong> – Condensador</li>
+                <li><strong>Q1</strong> – Transistor NPN</li>
+                <li><strong>LED1</strong> – Diodo LED</li>
+            </ul>
+
+            <h3>Paso 2: Crear el esquema en EasyEDA</h3>
+            <p>Abrí EasyEDA y seleccioné “Nuevo proyecto esquemático”.</p>
+            <ul>
+                <li>Busqué cada componente en la biblioteca (NE555, resistencias, condensador, transistor y LED).</li>
+                <li>Coloqué los componentes en el área de diseño, conectándolos con las herramientas de cableado.</li>
+                <li>Verifiqué que cada pin del NE555 estuviera correctamente conectado.</li>
+                <li>Añadí etiquetas y nombres a cada componente para mantener el esquema limpio.</li>
+            </ul>
+            
+            <h3>Paso 3: Crear la placa PCB</h3>
+            <p>Seleccioné Convertir a PCB (Convert to PCB).</p>
+            <ul>
+                <li>Coloqué todos los componentes en la placa, ajustando su orientación para optimizar el espacio.</li>
+                <li>Configuré las dimensiones del PCB según el tamaño del circuito.</li>
+                <li>Tracé las pistas:
+                    <ul>
+                        <li>Usé pistas más gruesas para las líneas de alimentación.</li>
+                        <li>Conecté las resistencias, condensador y transistor de forma ordenada.</li>
+                        <li>Aseguré que no hubiera cruces entre las pistas (solo una capa inferior).</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <h3>Paso 4: Verificación y exportación</h3>
+            <p>Finalmente, exporté los archivos Gerber, listos para enviar a fabricación.</p>
+            
+            
+            <div class="slideshow-container">
+
+                <div class="mySlides fade">
+                    <img src="https://github.com/sofi2810/pensamiento_ing1/blob/main/pcb%201.jpg" style="width:100%">
+                    </div>
+                <div class="mySlides fade">
+                    <img src="https://github.com/sofi2810/pensamiento_ing1/blob/main/pcb%202.jpg" style="width:100%">
+                    </div>
+                <div class="mySlides fade">
+                    <img src="https://github.com/sofi2810/pensamiento_ing1/blob/main/pcb%203.png" style="width:100%">
+                    </div>
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            </article> </main>
+
+    <footer>
+        <p>&copy; 2025 - Mi Portafolio de Diseño y Manufactura</p>
+    </footer>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        function plusSlides(n) { showSlides(slideIndex += n); }
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex-1].style.display = "block";
+        }
+    </script>
+    
+</body>
+</html>
